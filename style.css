@@ -1,0 +1,275 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    position: relative;
+    /* necesario para el pseudo-elemento */
+
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    /* fijo en pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./background.jpeg') no-repeat center center;
+    background-size: cover;
+    filter: blur(5px) brightness(0.6);
+    /* efectos solo al fondo */
+    z-index: -1;
+    /* detrás de todo el contenido */
+}
+
+
+.container {
+    background: rgba(255, 255, 255, 0.08);
+    /* Fondo translúcido */
+    border-radius: 20px;
+    backdrop-filter: blur(15px) saturate(150%);
+    /* Difuminado + saturación estilo iOS */
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    /* Borde sutil tipo cristal */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    /* Sombra elegante */
+    max-width: 500px;
+    width: 90vw !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.logo {
+    width: 100px;
+    margin: 20px 0;
+
+    /* Estilo liquid glass */
+    background: rgba(255, 255, 255, 0.1);
+    /* Fondo translúcido */
+    border-radius: 20px;
+    /* Bordes redondeados */
+    padding: 5px;
+    /* Pequeño padding para el cristal */
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+    /* Para que la imagen se mantenga dentro del cristal */
+    display: inline-block;
+    overflow: hidden;
+}
+
+.logo:hover {
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+}
+
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0 0 15px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-flex;
+    /* Para alinear icono y texto */
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    margin-bottom: 10px;
+
+    /* Liquid glass estilo */
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pseudo-elemento para brillo animado */
+.btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+/* Animación de brillo al hover */
+.btn:hover::after {
+    animation: shineBtn 2s linear infinite;
+
+}
+
+/* Keyframes para mover el brillo alrededor */
+@keyframes shineBtn {
+    20% {
+        opacity: 0.6;
+        transform: scale(1.1) rotate(10deg) translateY(-30%) skewX(10deg);
+        filter: blur(0.5px);
+    }
+
+    40% {
+        opacity: 1;
+        transform: scale(1.3) rotate(25deg) translateX(0%) translateY(10%) skewY(10deg);
+        filter: blur(0);
+    }
+
+    60% {
+        opacity: 0.7;
+        transform: scale(1.1) rotate(-10deg) translateX(40%) translateY(-10%) skewX(-10deg);
+        filter: blur(1px);
+    }
+
+    80% {
+        opacity: 0.4;
+        transform: scale(0.9) rotate(-25deg) translateX(80%) translateY(20%) skewY(-10deg);
+        filter: blur(1.5px);
+    }
+
+}
+
+/* Hover efecto general */
+.btn:hover {
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+    transition: all 0.5s ease-in-out;
+}
+
+/* Icono de Discord dentro del botón */
+.btn::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    background-image: url('https://img.icons8.com/?size=100&id=30888&format=png&color=000000');
+    /* Logo Discord */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Loader */
+.loader-container {
+    margin-top: 5px;
+    position: relative;
+    inset: 0;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: white;
+}
+
+.spinner {
+    width: 55px;
+    height: 55px;
+    border: 6px solid rgba(255, 255, 255, 0.1);
+    border-top: 6px solid #00f7ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 15px #00f7ff, 0 0 30px #00f7ff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#loaderText {
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: dots 1.5s steps(3, end) infinite;
+}
+
+
+#title {
+    justify-self: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    /* Color base */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: fit-content;
+    margin-bottom: 25px;
+
+    /* Estilo liquid glass destello */
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.8) 50%,
+            rgba(255, 255, 255, 0.2) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Animación del destello */
+    animation: shine 3.5s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+
+#description {
+    margin: 10px 10px;
+    text-wrap: pretty;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.75);
+    /* Blanco translúcido */
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .3);
+    margin-bottom: 30px;
+}

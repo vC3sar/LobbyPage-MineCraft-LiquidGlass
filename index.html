@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lobby Page</title>
+    <link id="favicon" rel="icon" type="image/png" href="favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <img id="logo" class="logo" alt="Logo">
+        <h1 id="title"></h1>
+        <!-- Loader -->
+        <div id="loader" class="loader-container">
+            <div class="spinner"></div>
+            <p id="loaderText"></p>
+        </div>
+        <p id="description"></p>
+        <a id="discordBtn" class="btn" target="_blank"></a>
+    </div>
+
+    <script>
+        // Set dynamic content from CONFIG
+        document.body.style.background = CONFIG.background;
+        document.getElementById("title").innerText = CONFIG.title;
+        document.getElementById("description").innerText = CONFIG.description;
+        document.getElementById("discordBtn").innerText = CONFIG.buttonText;
+        document.getElementById("discordBtn").href = CONFIG.discordLink;
+        document.getElementById("logo").src = CONFIG.logo;
+
+        // Show loader text on load 
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loader");
+            document.getElementById("loaderText").innerText = CONFIG.loaderText;
+
+            const loaderText = document.getElementById("loaderText");
+
+            // Secuencia de textos que se van mostrando
+            const sequence = [CONFIG.loaderText, ".", "..", "..."];
+            let index = 0;
+
+            setInterval(() => {
+                loaderText.innerText = sequence[index];
+                index = (index + 1) % sequence.length; // vuelve al inicio cuando termina
+            }, 1000); // velocidad de cambio (0.6s)
+
+        });
+
+
+    </script>
+</body>
+
+</html>
