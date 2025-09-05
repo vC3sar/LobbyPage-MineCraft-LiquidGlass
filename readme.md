@@ -6,7 +6,7 @@
 
 A visually appealing landing page with **liquid glass effects**, dynamic content, and a Discord button. Perfect for upcoming projects, game servers, or communities.
 
-![Preview](https://i.ibb.co/RTj7sc33/chrome-s-FDngfv-C8d.png)
+![pagewww](https://i.ibb.co/RTj7sc33/chrome-s-FDngfv-C8d.png)
 
 ---
 
